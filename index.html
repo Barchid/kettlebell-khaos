@@ -1,0 +1,817 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Kettlebell Khaos</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="reveal.css">
+	<link rel="stylesheet" href="theme/black.css" id="theme">
+</head>
+
+<body>
+	<script>
+		function leftPadNumber(n) {
+			return n > 9 ? "" + n : "0" + n;
+		}
+	</script>
+	<div class="reveal">
+		<div class="slides">
+			<!-- START page -->
+			<section>
+				<h1>
+					Kettlebell Khaos
+				</h1>
+				<h4>
+					By Funk Roberts
+				</h4>
+				<p>
+					Go on next slide to begin your workout
+				</p>
+			</section>
+
+			<!-- WORKOUT 1 -->
+			<section>
+				<section>
+					<h3>
+						Workout 1
+					</h3>
+					<h2 class="r-fit-text">COMPLEX</h2>
+					<p>
+						Perform each exercise one after the other for <span class="fragment highlight-red">5 reps</span>
+						each
+						starting with one side and then <span class="fragment highlight-red">repeat for the other
+							side</span>.
+					</p>
+				</section>
+				<section>
+					<div class="w3-grey">
+						<div id="js-timer-workout1" class="w3-container w3-purple w3-center" style="width:0%">
+							00:00
+						</div>
+					</div>
+					<p><button id="js-timer-start-workout1" class="w3-button w3-purple"
+							onclick="startWorkout1()">START</button></p>
+					<img src="workout1_exos.jpg" class="r-stretch">
+
+					<script>
+						function startWorkout1() {
+							var elem = document.getElementById("js-timer-workout1");
+							var btn = document.getElementById("js-timer-start-workout1");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerWorkout1, 1000);
+
+							function timerWorkout1() {
+								if (timer >= 600) { //  after 10 minutes, stop
+									clearInterval(id);
+								} else {
+									timer++;
+
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor(timer / 6)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									var minutes = leftPadNumber(Math.floor(timer / 60));
+									var seconds = leftPadNumber(timer - minutes * 60);
+									elem.innerHTML = minutes + ":" + seconds;
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+			</section>
+
+			<!-- WORKOUT 2 -->
+			<section>
+				<section>
+					<h3>
+						Workout 2
+					</h3>
+					<h2 class="r-fit-text">Metabolic</h2>
+					<p>
+						Perform each exercise for <span class="fragment highlight-red">40 seconds of work</span>
+						followed by <span class="fragment highlight-red">20 second
+							rest</span> oner after the other for <span class="fragment highlight-red">2 straight
+							rounds</span>
+					</p>
+				</section>
+
+				<!-- Round 1 Exo 1 (Snatch) R1E1 -->
+				<section>
+					<h2>Round 1</h2>
+					<h4 class="r-fit-text">
+						Kettlebell Snatch
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R1E1" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E1" class="w3-button w3-pink" onclick="startR1E1()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E1() {
+							var elem = document.getElementById("js-timer-R1E1");
+							var btn = document.getElementById("js-timer-start-R1E1");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E1, 1000);
+
+							function timerR1E1() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 1 Exo 2 (Goblet Squat to Lunge) R1E2 -->
+				<section>
+					<h2>Round 1</h2>
+					<h4 class="r-fit-text">
+						Goblet Squat to Lunge
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R1E2" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E2" class="w3-button w3-pink" onclick="startR1E2()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E2() {
+							var elem = document.getElementById("js-timer-R1E2");
+							var btn = document.getElementById("js-timer-start-R1E2");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E2, 1000);
+
+							function timerR1E2() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !";
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 1 Exo 3 (Cross body cleans) R1E3 -->
+				<section>
+					<h2>Round 1</h2>
+					<h4 class="r-fit-text">
+						Cross body cleans
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R1E3" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E3" class="w3-button w3-pink" onclick="startR1E3()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E3() {
+							var elem = document.getElementById("js-timer-R1E3");
+							var btn = document.getElementById("js-timer-start-R1E3");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E3, 1000);
+
+							function timerR1E3() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+
+				<!-- Round 1 Exo 4 (Alt Single Swings) R1E4 -->
+				<section>
+					<h2>Round 1</h2>
+					<h4 class="r-fit-text">
+						Alt Single Swings
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R1E4" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E4" class="w3-button w3-pink" onclick="startR1E4()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E4() {
+							var elem = document.getElementById("js-timer-R1E4");
+							var btn = document.getElementById("js-timer-start-R1E4");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E4, 1000);
+
+							function timerR1E4() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 1 Exo 5 (KB Swing to Squat) R1E5 -->
+				<section>
+					<h2>Round 1</h2>
+					<h4 class="r-fit-text">
+						KB Swing to Squat
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R1E5" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E5" class="w3-button w3-pink" onclick="startR1E5()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E5() {
+							var elem = document.getElementById("js-timer-R1E5");
+							var btn = document.getElementById("js-timer-start-R1E5");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E5, 1000);
+
+							function timerR1E5() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 2 Exo 1 (Snatch) R2E1 -->
+				<section>
+					<h2>Round 2</h2>
+					<h4 class="r-fit-text">
+						Kettlebell Snatch
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R2E1" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R2E1" class="w3-button w3-pink" onclick="startR2E1()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR2E1() {
+							var elem = document.getElementById("js-timer-R2E1");
+							var btn = document.getElementById("js-timer-start-R2E1");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR2E1, 1000);
+
+							function timerR2E1() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 2 Exo 2 (Goblet Squat to Lunge) R2E2 -->
+				<section>
+					<h2>Round 2</h2>
+					<h4 class="r-fit-text">
+						Goblet Squat to Lunge
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R2E2" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R2E2" class="w3-button w3-pink" onclick="startR2E2()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR2E2() {
+							var elem = document.getElementById("js-timer-R2E2");
+							var btn = document.getElementById("js-timer-start-R2E2");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR2E2, 1000);
+
+							function timerR2E2() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !";
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 2 Exo 3 (Cross body cleans) R2E3 -->
+				<section>
+					<h2>Round 2</h2>
+					<h4 class="r-fit-text">
+						Cross body cleans
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R2E3" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R2E3" class="w3-button w3-pink" onclick="startR2E3()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR2E3() {
+							var elem = document.getElementById("js-timer-R2E3");
+							var btn = document.getElementById("js-timer-start-R2E3");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR2E3, 1000);
+
+							function timerR2E3() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+
+				<!-- Round 2 Exo 4 (Alt Single Swings) R2E4 -->
+				<section>
+					<h2>Round 2</h2>
+					<h4 class="r-fit-text">
+						Alt Single Swings
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R2E4" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R2E4" class="w3-button w3-pink" onclick="startR2E4()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR2E4() {
+							var elem = document.getElementById("js-timer-R2E4");
+							var btn = document.getElementById("js-timer-start-R2E4");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR2E4, 1000);
+
+							function timerR2E4() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+
+				<!-- Round 2 Exo 5 (KB Swing to Squat) R2E5 -->
+				<section>
+					<h2>Round 2</h2>
+					<h4 class="r-fit-text">
+						KB Swing to Squat
+					</h4>
+					<div class="w3-grey">
+						<div id="js-timer-R2E5" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R2E5" class="w3-button w3-pink" onclick="startR2E5()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR2E5() {
+							var elem = document.getElementById("js-timer-R2E5");
+							var btn = document.getElementById("js-timer-start-R2E5");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR2E5, 1000);
+
+							function timerR2E5() {
+								if (timer >= 60) { //  after 1 minute, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 60) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 40) {
+										elem.classList.add('w3-pink')
+									}
+									else if (timer < 60) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+			</section>
+
+
+			<!-- WORKOUT 3 : finisher ladder -->
+			<section>
+				<section>
+					<h3>
+						Workout 3
+					</h3>
+					<h2 class="r-fit-text">Ladder Finisher</h2>
+					<p>
+						Perform <span class="fragment highlight-red">burpees and swing</span> in a ascending and
+						descending ladder format starting with <span class="fragment highlight-red">1 KB Swing and 7
+							Burpees</span>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Ladder</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Swings</th>
+								<th></th>
+								<th></th>
+								<th>Burpees</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="fragment">
+								<td style="text-align: center;">1</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">7</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">2</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">6</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">3</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">5</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">4</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">4</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">5</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">3</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">6</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">2</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align: center;">7</td>
+								<td></td>
+								<td></td>
+								<td style="text-align: center;">1</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="reveal.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: []
+		});
+	</script>
+</body>
+
+</html>
