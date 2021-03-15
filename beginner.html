@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Chandler Marchman's Beginner Workout</title>
+
+
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="reveal.css">
+	<link rel="stylesheet" href="theme/black.css" id="theme">
+</head>
+
+<body>
+	<script>
+		function leftPadNumber(n) {
+			return n > 9 ? "" + n : "0" + n;
+		}
+	</script>
+	<div class="reveal">
+		<div class="slides">
+			<!-- START page -->
+			<section>
+				<h1>
+					Beginner KB Workout
+				</h1>
+				<h4>
+					By Chandler Marchman
+				</h4>
+				<p>
+					Go on next slide to begin your workout
+				</p>
+			</section>
+
+			<section>
+				<section>
+					<h2>Two-Handed Swing</h2>
+					<img src="2-handed-swing.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Squat</h2>
+					<img src="goblet-squat.jpg">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Reverse Lungle</h2>
+					<img src="goblet-reverse-lunge.jpg">
+					<p>x5 / leg
+					<p>
+				</section>
+
+				<section>
+					<h2>Lateral Push Up</h2>
+					<img src="push-up.jpg">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Wide Stance Anti-Rotation Row</h2>
+					<img src="wide-stance.png">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Walk</h2>
+					<img src="goblet-walk.png">
+					<p>15m <i>(50 ft)</i>
+					<p>
+				</section>
+
+				<section data-background-color="#d35400">
+					<h2>Deadlift</h2>
+					<img src="deadlift.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h1>Rest</h1>
+					<div class="w3-grey">
+						<div id="js-timer-R1E1" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E1" class="w3-button w3-pink" onclick="startR1E1()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E1() {
+							var elem = document.getElementById("js-timer-R1E1");
+							var btn = document.getElementById("js-timer-start-R1E1");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E1, 1000);
+
+							function timerR1E1() {
+								if (timer >= 120) { //  after 2 minutes, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 120) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 120) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 120) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Two-Handed Swing</h2>
+					<img src="2-handed-swing.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Squat</h2>
+					<img src="goblet-squat.jpg">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Reverse Lungle</h2>
+					<img src="goblet-reverse-lunge.jpg">
+					<p>x5 / leg
+					<p>
+				</section>
+
+				<section>
+					<h2>Lateral Push Up</h2>
+					<img src="push-up.jpg">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Wide Stance Anti-Rotation Row</h2>
+					<img src="wide-stance.png">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Walk</h2>
+					<img src="goblet-walk.png">
+					<p>15m <i>(50 ft)</i>
+					<p>
+				</section>
+
+				<section data-background-color="#d35400">
+					<h2>Deadlift</h2>
+					<img src="deadlift.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h1>Rest</h1>
+					<div class="w3-grey">
+						<div id="js-timer-R1E2" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E2" class="w3-button w3-pink" onclick="startR1E2()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E2() {
+							var elem = document.getElementById("js-timer-R1E2");
+							var btn = document.getElementById("js-timer-start-R1E2");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E2, 1000);
+
+							function timerR1E2() {
+								if (timer >= 120) { //  after 2 minutes, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 120) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 120) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 120) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+			</section>
+
+
+			<section>
+				<section>
+					<h2>Two-Handed Swing</h2>
+					<img src="2-handed-swing.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Squat</h2>
+					<img src="goblet-squat.jpg">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Reverse Lungle</h2>
+					<img src="goblet-reverse-lunge.jpg">
+					<p>x5 / leg
+					<p>
+				</section>
+
+				<section>
+					<h2>Lateral Push Up</h2>
+					<img src="push-up.jpg">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Wide Stance Anti-Rotation Row</h2>
+					<img src="wide-stance.png">
+					<p>x5 / side
+					<p>
+				</section>
+
+				<section>
+					<h2>Goblet Walk</h2>
+					<img src="goblet-walk.png">
+					<p>15m <i>(50 ft)</i>
+					<p>
+				</section>
+
+				<section data-background-color="#d35400">
+					<h2>Deadlift</h2>
+					<img src="deadlift.png">
+					<p>x5
+					<p>
+				</section>
+
+				<section>
+					<h1>Rest</h1>
+					<div class="w3-grey">
+						<div id="js-timer-R1E3" class="w3-container w3-pink w3-center" style="width:0%">
+							00
+						</div>
+					</div>
+					<p>
+						<button id="js-timer-start-R1E3" class="w3-button w3-pink" onclick="startR1E3()">
+							START
+						</button>
+					</p>
+
+					<script>
+						function startR1E3() {
+							var elem = document.getElementById("js-timer-R1E3");
+							var btn = document.getElementById("js-timer-start-R1E3");
+							var width = 0;
+							var timer = 0;
+							var id = setInterval(timerR1E3, 1000);
+
+							function timerR1E3() {
+								if (timer >= 120) { //  after 2 minutes, stop
+									clearInterval(id);
+								} else {
+									timer++;
+									// Width calculation
+									elem.style.width = Math.min(100, Math.floor((timer / 120) * 100)) + '%'; // Math.min forces to keep 100%
+
+									// Display of time
+									if (timer < 120) {
+										var seconds = leftPadNumber(timer);
+										elem.innerHTML = seconds;
+									}
+									else {
+										elem.innerHTML = "Done !"
+									}
+
+									// color of bar
+									elem.classList.remove('w3-blue', 'w3-pink', 'w3-green');
+									if (timer < 120) {
+										elem.classList.add('w3-blue');
+									}
+									else {
+										elem.classList.add('w3-green')
+									}
+								}
+							}
+
+							btn.parentNode.removeChild(btn);
+						}
+					</script>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h1 class="r-fit-text">Congratulations ! 🤘</h1>
+					<p>Don't forget to get back tomorrow 👋</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="reveal.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: []
+		});
+	</script>
+</body>
+
+</html>
