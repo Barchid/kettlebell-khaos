@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Kettlebell EMOM</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="reveal.css">
+    <link rel="stylesheet" href="theme/black.css" id="theme">
+</head>
+
+<body>
+    <script>
+        function leftPadNumber(n) {
+            return n > 9 ? "" + n : "0" + n;
+        }
+    </script>
+
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Kettlebell EMOM</h1>
+            </section>
+
+            <section>
+                <div class="w3-grey">
+                    <div id="js-timer" class="w3-container w3-yellow w3-center" style="width:0%">
+                        00
+                    </div>
+                </div>
+                <p>
+                    <button id="js-timer-start" class="w3-button w3-yellow" onclick="start()">
+                        START
+                    </button>
+                </p>
+
+                <h3 id="js-minutes">
+                    0
+                </h3>
+
+                <ul id="js-stops">
+                </ul>
+
+                <script>
+                    function start() {
+                        var elem = document.getElementById("js-timer");
+                        var btn = document.getElementById("js-timer-start");
+                        var min_elem = document.getElementById("js-minutes");
+                        var stops_elem = document.getElementById('js-stops');
+                        var audio = new Audio('clap.wav');
+                        var width = 0;
+                        var timer = 0;
+                        var minutes = 0;
+
+                        var id = setInterval(timer_fun, 1000);
+
+                        function timer_fun() {
+                            timer++;
+            
+                            // Width calculation
+                            elem.style.width = Math.min(100, Math.floor((timer / 60) * 100)) + '%'; // Math.min forces to keep 100%
+
+                            // Display of time (seconds)
+                            var seconds = leftPadNumber(timer);
+                            elem.innerHTML = seconds;
+
+                            // color of bar
+                            elem.classList.remove('w3-yellow', 'w3-blue', 'w3-pink', 'w3-green');
+                            if (timer < 40) {
+                                elem.classList.add('w3-pink')
+                            }
+                            else if (timer <= 56) {
+                                elem.classList.add('w3-blue');
+                            }
+                            else if (timer < 60) {
+                                audio.play();
+                                elem.classList.add('w3-green')
+                            }
+                            else { // 60 seconds passed
+                                timer = 0; // reset
+
+                                // Add minutes
+                                minutes++;
+                                min_elem.textContent = minutes
+                            }
+                        }
+
+                        // change btn function to stop
+                        btn.textContent = "STOP";
+                        btn.classList.remove('w3-yellow');
+                        btn.classList.add('w3-pink');
+                        btn.onclick = () => {
+                            stop_item = document.createElement('li');
+                            stop_item.textContent = leftPadNumber(minutes) + ":" + leftPadNumber(timer);
+                            stops_elem.appendChild(stop_item);
+                        }
+                    }
+
+                    
+                </script>
+            </section>
+        </div>
+    </div>
+    <script src="reveal.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: []
+        });
+    </script>
+</body>
+
+</html>
